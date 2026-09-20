@@ -32,7 +32,9 @@ typedef enum {
     MAX_M10S_OK = 0x00,
     MAX_M10S_ERROR = 0x01,
     MAX_M10S_I2C_ERROR = 0x02,
-    MAX_M10S_INVALID_PACKET = 0x03
+    MAX_M10S_INVALID_PACKET = 0x03,
+    MAX_M10S_NO_NEW_DATA = 0x04,
+    MAX_M10S_NEW_DATA = 0x05
 }MAX_M10S_Status_t;
 
 typedef struct {
