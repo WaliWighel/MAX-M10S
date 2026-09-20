@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_gcc.h"
 #include "gpdma.h"
 #include "i2c.h"
 #include "sbs.h"
@@ -130,8 +131,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    // MAX_M10S_ReadGNSSData(&gnss);
-    // HAL_Delay(100);
+    if (MAX_M10S_CopyLatestData(&gnss) == MAX_M10S_NEW_DATA) {
+      // Do something 
+      __NOP();
+    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
