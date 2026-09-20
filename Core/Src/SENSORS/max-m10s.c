@@ -493,9 +493,12 @@ MAX_M10S_Status_t MAX_M10S_HandleEvent (Event_t event) {
 
 // TODO 
 MAX_M10S_Status_t MAX_M10S_CopyLatestData (MAX_M10S_Data_t *a) {
+    if (!(gnss_data.available && gnss_data.new_data)) {
+        return MAX_M10S_NO_NEW_DATA;
+    }
     memcpy(a, &gnss_data, sizeof(gnss_data));
 
-    return MAX_M10S_OK;
+    return MAX_M10S_NEW_DATA;
 }
 
 static MAX_M10S_Status_t MAX_M10S_CheckHWVersion (void) {
